@@ -1,0 +1,55 @@
+---
+title: "Vignette"
+author: "Sharene Siddiqui"
+date: "5/3/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to binomial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+library(binomial)
+```
+
+## Binomial 
+
+The package `"binomial"` implements functions for calculating probabilities of a Binomial random variable, and related calculations such as the probability distribution, the expected value, variance, etc.
+
+
+## Calculate the number of combinations in which k successes can occur in n trials
+
+```{r}
+bin_choose(n, k)
+```
+
+There are no defaults so you must define your n and k
+
+
+## Probability of getting k successes in n trials 
+
+```{r}
+bin_probability(k, n, p)
+```
+
+There are no defaults so you must define your k, n, and p.
+
+## Graphs a barplot to display the probability histogram of a binomial distribution
+
+```{r}
+dis1 <- bin_distribution(n, p)
+plot.bindis(dis1)
+```
+
+
+## Graphs the cumulative distribution
+
+You can use the function `plot()` to create a graohic with the relative 
+frequencies of a series of coin tosses:
+
+```{r}
+dis2 <- bin_cumulative(n, p)
+plot.bincum(dis2)
+```
